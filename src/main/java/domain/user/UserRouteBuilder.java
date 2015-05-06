@@ -2,7 +2,6 @@ package domain.user;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by nakamurajun on 2015/05/06.
@@ -13,10 +12,10 @@ public class UserRouteBuilder extends RouteBuilder {
     public void configure() {
         restConfiguration()
                 .component("jetty")
-                .host("localhost")
-                .port(9000)
                 .bindingMode(RestBindingMode.json)
-                ;
+                .port(9000)
+                .host("127.0.0.1")
+        ;
 
         rest("/user")
                 .description("user api")
@@ -31,11 +30,7 @@ public class UserRouteBuilder extends RouteBuilder {
                 .get("/all")
                 .description("find all users.")
                 .outTypeList(User.class)
-                .to("bean:userService?method=findAll");
+                .to("bean:userService?method=findAll")
          ;
-
-
-
-
     }
 }

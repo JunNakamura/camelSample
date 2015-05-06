@@ -12,6 +12,7 @@
         <camel.version>2.15.2</camel.version>
         <spring-boot>1.2.2.RELEASE</spring-boot>
         <slf4j.version>1.6.6</slf4j.version>
+        <hawtio.version>1.4.50</hawtio.version>
     </properties>
 
     <dependencies>
@@ -39,12 +40,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-jetty-common</artifactId>
-            <version>${camel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-jetty9</artifactId>
+            <artifactId>camel-jetty</artifactId>
             <version>${camel.version}</version>
         </dependency>
         <dependency>
@@ -52,20 +48,11 @@
             <artifactId>camel-metrics</artifactId>
             <version>${camel.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring-boot</artifactId>
+            <artifactId>camel-spring</artifactId>
             <version>${camel.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot}</version>
-        </dependency>
-
-
 
     </dependencies>
 
@@ -77,6 +64,17 @@
                 <version>2.14.1</version>
                 <!-- optional, default value: org.apache.camel.spring.Main -->
                 <configuration>
+                    <mainClass>MyApp</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.hawt</groupId>
+                <artifactId>hawtio-maven-plugin</artifactId>
+                <version>1.4.50</version>
+                <configuration>
+                    <!-- configuration options goes here -->
+                    <logClasspath>true</logClasspath>
+                    <port>8088</port>
                 </configuration>
             </plugin>
         </plugins>
