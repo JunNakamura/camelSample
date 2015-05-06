@@ -53,6 +53,11 @@
             <artifactId>camel-spring</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.hawt</groupId>
+            <artifactId>hawtio-embedded</artifactId>
+            <version>${hawtio.version}</version>
+        </dependency>
 
     </dependencies>
 

@@ -14,6 +14,8 @@ public class MyApp {
     }
 
     public static void main(String[] args) throws Exception {
+        EmbeddedHawtio.run();
+
         Main main = init();
         main.run();
     }
