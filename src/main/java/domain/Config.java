@@ -7,21 +7,20 @@ import java.util.Optional;
  */
 public class Config {
 
-    private static Optional<Integer> port = Optional.empty();;
+    private static Optional<Integer> port;
 
     public static Optional<Integer> getPort() {
+        if (port == null) {
+            String httpPort = System.getProperty("http.port");
+            try {
+                Integer portNumber = Integer.valueOf(httpPort);
+                port = Optional.ofNullable(portNumber);
+            } catch (NumberFormatException e) {
+                port = Optional.empty();
+            }
+        }
         return port;
     }
 
-    public static void init(String[] args) {
-        if (args != null && args.length > 0) {
-            try {
-                Integer argsPort = Integer.valueOf(args[0]);
-                port = Optional.ofNullable(argsPort);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
 
-        }
-    }
 }

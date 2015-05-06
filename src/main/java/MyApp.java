@@ -14,10 +14,6 @@ public class MyApp {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println("---start!---");
-
-        Config.init(args);
-
         Main main = init();
         main.run();
     }
@@ -25,7 +21,6 @@ public class MyApp {
     private static Main init() {
         Main main = new Main();
         main.enableHangupSupport();
-        //main.addRouteBuilder(new UserRouteBuilder());
         return main;
     }
 }
