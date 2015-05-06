@@ -1,5 +1,6 @@
 package domain.user;
 
+import domain.Config;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 
@@ -10,10 +11,11 @@ public class UserRouteBuilder extends RouteBuilder {
 
     @Override
     public void configure() {
+
         restConfiguration()
                 .component("jetty")
                 .bindingMode(RestBindingMode.json)
-                .port(5000)
+                .port(Config.getPort().orElse(9000))
                 .host("localhost")
         ;
 
