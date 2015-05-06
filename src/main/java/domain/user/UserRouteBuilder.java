@@ -13,8 +13,8 @@ public class UserRouteBuilder extends RouteBuilder {
         restConfiguration()
                 .component("jetty")
                 .bindingMode(RestBindingMode.json)
-                .port(9000)
-                .host("127.0.0.1")
+                .port(5000)
+                .host("localhost")
         ;
 
         rest("/")
