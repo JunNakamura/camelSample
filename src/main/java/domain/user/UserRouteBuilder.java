@@ -17,6 +17,15 @@ public class UserRouteBuilder extends RouteBuilder {
                 .host("127.0.0.1")
         ;
 
+        rest("/")
+                .description("welcom point")
+                .produces("application/json")
+                .get("")
+                .outType(String.class)
+                .route()
+                .transform()
+                .constant("welcome");
+
         rest("/user")
                 .description("user api")
                 .consumes("application/json")
