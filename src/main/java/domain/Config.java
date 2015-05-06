@@ -15,8 +15,13 @@ public class Config {
 
     public static void init(String[] args) {
         if (args != null && args.length > 0) {
-            Integer argsPort = Integer.valueOf(args[0]);
-            port = Optional.ofNullable(argsPort);
+            try {
+                Integer argsPort = Integer.valueOf(args[0]);
+                port = Optional.ofNullable(argsPort);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
