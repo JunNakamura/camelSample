@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dhttp.port=$PORT -jar target/geo-1.0-SNAPSHOT-jar-with-dependencies.jar
+web: java $JAVA_OPTS -Dhttp.port=3000 -jar target/geo-1.0-SNAPSHOT-jar-with-dependencies.jar
